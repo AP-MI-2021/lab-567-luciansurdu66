@@ -15,5 +15,3 @@ def test_aplicare_discount():
     assert get_reducere(modificat1) == "none"
     assert get_pret(modificat2) == 28.2245
     assert get_reducere(modificat2) == "none"
-
-

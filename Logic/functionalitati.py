@@ -1,8 +1,8 @@
-from Domain.vanzare import get_id, get_titlu, get_gen, get_pret, get_reducere, creeaza_vanzare
+from Domain.vanzare import get_id, get_titlu, get_gen, get_pret, get_reducere
 from Logic.CRUD import modifica_vanzare
 
 
-def aplicare_discount(lst_vanzari):
+def aplicare_discount(lst_vanzari: list) -> list:
     """
     Modifica pretul vanzarilor in functie de tipul de reducere aplicat
     :param lst_vanzari: lista de vanzari
@@ -22,3 +22,12 @@ def aplicare_discount(lst_vanzari):
             lst_vanzari = modifica_vanzare(id_vanzare, titlu, gen, pret - discount, 'none', lst_vanzari)
     return lst_vanzari
 
+
+def modifica_gen(titlu: str, lst_vanzari: list):
+    """
+    Modifica genul unei carti pentru un titlu dat
+    :param titlu: titlul dat
+    :param lst_vanzari: lista de vanzari
+    :return: lista de vanzari modificata
+    """
+    pass

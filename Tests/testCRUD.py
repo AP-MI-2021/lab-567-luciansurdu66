@@ -40,5 +40,3 @@ def test_modifica_vanzare():
     vanzare_modificata = get_by_id("1", lst)
 
     assert get_pret(vanzare_modificata) == 24.99
-
-
