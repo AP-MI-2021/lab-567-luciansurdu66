@@ -16,12 +16,16 @@ def print_menu():
 
 
 def ui_adauga_vanzare(lst_vanzari):
-    id_vanzare = input("Dati id-ul vanzarii: ")
-    titlu = input("Dati titlul cartii: ")
-    gen = input("Dati genul cartii: ")
-    pret = float(input("Dati pretul cartii: "))
-    reducere = input("Dati tipul de reducere client: ")
-    return adauga_vanzare(id_vanzare, titlu, gen, pret, reducere, lst_vanzari)
+    try:
+        id_vanzare = input("Dati id-ul vanzarii: ")
+        titlu = input("Dati titlul cartii: ")
+        gen = input("Dati genul cartii: ")
+        pret = float(input("Dati pretul cartii: "))
+        reducere = input("Dati tipul de reducere client: ")
+        return adauga_vanzare(id_vanzare, titlu, gen, pret, reducere, lst_vanzari)
+    except ValueError as ve:
+        print("Eroare: ", ve)
+        return lst_vanzari
 
 
 def ui_sterge_vanzare(lst_vanzari):
@@ -34,12 +38,16 @@ def ui_sterge_vanzare(lst_vanzari):
 
 
 def ui_modifica_vanzare(lst_vanzari):
-    id_vanzare = input("Dati id-ul vanzarii ce trebuie modificata: ")
-    titlu = input("Dati noul titlu al cartii: ")
-    gen = input("Dati noul gen al cartii: ")
-    pret = float(input("Dati noul pret al cartii: "))
-    reducere = input("Dati noul tip de reducere client: ")
-    return modifica_vanzare(id_vanzare, titlu, gen, pret, reducere, lst_vanzari)
+    try:
+        id_vanzare = input("Dati id-ul vanzarii ce trebuie modificata: ")
+        titlu = input("Dati noul titlu al cartii: ")
+        gen = input("Dati noul gen al cartii: ")
+        pret = float(input("Dati noul pret al cartii: "))
+        reducere = input("Dati noul tip de reducere client: ")
+        return modifica_vanzare(id_vanzare, titlu, gen, pret, reducere, lst_vanzari)
+    except ValueError as ve:
+        print("Eroare: ", ve)
+        return lst_vanzari
 
 
 def ui_aplica_discount(lst_vanzari):
@@ -62,9 +70,13 @@ def ui_ordonare_dupa_pret(lst_vanzari):
 
 
 def ui_modifica_gen(lst_vanzari):
-    titlu = input("Dati titlul cartii: ")
-    gen = input("Dati noul gen al cartii: ")
-    return modifica_gen(titlu, gen, lst_vanzari)
+    try:
+        titlu = input("Dati titlul cartii: ")
+        gen = input("Dati noul gen al cartii: ")
+        return modifica_gen(titlu, gen, lst_vanzari)
+    except ValueError as ve:
+        print("Eroare: ", ve)
+        return lst_vanzari
 
 
 def run_menu(lst_vanzari):
