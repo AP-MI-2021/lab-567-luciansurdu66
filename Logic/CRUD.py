@@ -12,6 +12,8 @@ def adauga_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_v
     :param lst_vanzari: lista de vanzari
     :return: o noua lista formata din lst_vanzari si noua vanzare adaugata
     """
+    if get_by_id(id_vanzare, lst_vanzari) is not None:
+        raise ValueError("Exista deja o vanzare cu acest id!")
     vanzare = creeaza_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere)
     return lst_vanzari + [vanzare]
 
