@@ -36,6 +36,8 @@ def sterge_vanzare(id_vanzare, lst_vanzari):
     :param lst_vanzari: lista de vanzari
     :return: noua lista ce nu contina vanzarea cu id-ul id_vanzare
     """
+    if get_by_id(id_vanzare, lst_vanzari) is None:
+        raise ValueError("Nu exista o vanzare cu id-ul dat!")
     return [vanzare for vanzare in lst_vanzari if get_id(vanzare) != id_vanzare]
 
 
@@ -50,6 +52,8 @@ def modifica_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst
     :param lst_vanzari: lista de vanzari
     :return: lista modificata
     """
+    if get_by_id(id_vanzare, lst_vanzari) is None:
+        raise ValueError("Nu exista o vanzare cu id-ul dat!")
     new_list = []
     for vanzare in lst_vanzari:
         if get_id(vanzare) == id_vanzare:
