@@ -1,9 +1,11 @@
 from Domain.vanzare import get_id, creeaza_vanzare
 
 
-def adauga_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari):
+def adauga_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari, undo_list, redo_list):
     """
     Adauga o vanzare in lista
+    :param redo_list:
+    :param undo_list:
     :param id_vanzare: sting
     :param titlu_carte: string
     :param gen_carte: string
@@ -15,6 +17,8 @@ def adauga_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_v
     if get_by_id(id_vanzare, lst_vanzari) is not None:
         raise ValueError("Exista deja o vanzare cu acest id!")
     vanzare = creeaza_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere)
+    undo_list.append(lst_vanzari)
+    redo_list.clear()
     return lst_vanzari + [vanzare]
 
 
@@ -31,21 +35,27 @@ def get_by_id(id_vanzare, lst_vanzari):
     return None
 
 
-def sterge_vanzare(id_vanzare, lst_vanzari):
+def sterge_vanzare(id_vanzare, lst_vanzari, undo_list, redo_list):
     """
     Sterge o vanzare din lista
+    :param redo_list:
+    :param undo_list:
     :param id_vanzare: id-ul vanzarii pe care vrem sa o stergem
     :param lst_vanzari: lista de vanzari
     :return: noua lista ce nu contina vanzarea cu id-ul id_vanzare
     """
     if get_by_id(id_vanzare, lst_vanzari) is None:
         raise ValueError("Nu exista o vanzare cu id-ul dat!")
+    undo_list.append(lst_vanzari)
+    redo_list.clear()
     return [vanzare for vanzare in lst_vanzari if get_id(vanzare) != id_vanzare]
 
 
-def modifica_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari):
+def modifica_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari, undo_list, redo_list):
     """
     Modifica o vanzare din lista dupa id
+    :param redo_list:
+    :param undo_list:
     :param id_vanzare: string
     :param titlu_carte: string
     :param gen_carte: string
@@ -63,4 +73,6 @@ def modifica_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst
             new_list.append(vanzare_noua)
         else:
             new_list.append(vanzare)
+    undo_list.append(lst_vanzari)
+    redo_list.clear()
     return new_list

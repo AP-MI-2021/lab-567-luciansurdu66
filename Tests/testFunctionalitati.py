@@ -5,9 +5,9 @@ from Logic.functionalitati import aplicare_discount, pret_minim_gen, ordonare_du
 
 def test_aplicare_discount():
     lst = []
-    lst = adauga_vanzare("1", "1984", "Roman Politic", 24.95, "gold", lst)
-    lst = adauga_vanzare("2", "Metamorfoza", "Nuvela", 29.71, "silver", lst)
-    noua_lista = aplicare_discount(lst)
+    lst = adauga_vanzare("1", "1984", "Roman Politic", 24.95, "gold", lst, [], [])
+    lst = adauga_vanzare("2", "Metamorfoza", "Nuvela", 29.71, "silver", lst, [], [])
+    noua_lista = aplicare_discount(lst, [], [])
     modificat1 = get_by_id("1", noua_lista)
     modificat2 = get_by_id("2", noua_lista)
 
@@ -19,9 +19,9 @@ def test_aplicare_discount():
 
 def test_pret_minim_gen():
     lst = []
-    lst = adauga_vanzare("1", "1984", "Roman Politic", 24.95, "gold", lst)
-    lst = adauga_vanzare("2", "Metamorfoza", "Nuvela", 29.71, "silver", lst)
-    lst = adauga_vanzare("3", "3", "Nuvela", 37.82, "none", lst)
+    lst = adauga_vanzare("1", "1984", "Roman Politic", 24.95, "gold", lst, [], [])
+    lst = adauga_vanzare("2", "Metamorfoza", "Nuvela", 29.71, "silver", lst, [], [])
+    lst = adauga_vanzare("3", "3", "Nuvela", 37.82, "none", lst, [], [])
 
     rezultat = pret_minim_gen(lst)
 
@@ -32,9 +32,9 @@ def test_pret_minim_gen():
 
 def test_ordonare_dupa_pret():
     lst = []
-    lst = adauga_vanzare("1", "1984", "Roman Politic", 24.95, "gold", lst)
-    lst = adauga_vanzare("2", "Metamorfoza", "Nuvela", 29.71, "silver", lst)
-    lst = adauga_vanzare("3", "3", "Nuvela", 37.82, "none", lst)
+    lst = adauga_vanzare("1", "1984", "Roman Politic", 24.95, "gold", lst, [], [])
+    lst = adauga_vanzare("2", "Metamorfoza", "Nuvela", 29.71, "silver", lst, [], [])
+    lst = adauga_vanzare("3", "3", "Nuvela", 37.82, "none", lst, [], [])
 
     rezultat = ordonare_dupa_pret(lst)
 
