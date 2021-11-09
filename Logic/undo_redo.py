@@ -1,10 +1,10 @@
 def do_undo(lst_vanzari, undo_list, redo_list):
     """
-
-    :param lst_vanzari:
-    :param undo_list:
-    :param redo_list:
-    :return:
+    Face un undo
+    :param lst_vanzari: lista curenta
+    :param undo_list: lista pentru undo
+    :param redo_list: lista pentru redo
+    :return: lista curenta in cazul in care nu se poate face undo
     """
 
     if undo_list:
@@ -15,11 +15,11 @@ def do_undo(lst_vanzari, undo_list, redo_list):
 
 def do_redo(lst_vanzari, undo_list, redo_list):
     """
-
-    :param lst_vanzari:
-    :param undo_list:
-    :param redo_list:
-    :return:
+    Face un redo
+    :param lst_vanzari: lista curenta
+    :param undo_list: lista pentru undo
+    :param redo_list: lista pentru redo
+    :return: lista curenta in cazul in care nu se poate face redo
     """
     if redo_list:
         top_redo = redo_list.pop()

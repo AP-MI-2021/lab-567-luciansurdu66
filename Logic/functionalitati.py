@@ -5,8 +5,8 @@ from Logic.CRUD import modifica_vanzare
 def aplicare_discount(lst_vanzari: list, undo_list, redo_list) -> list:
     """
     Modifica pretul vanzarilor in functie de tipul de reducere aplicat
-    :param redo_list:
-    :param undo_list:
+    :param redo_list: lista pentru redo
+    :param undo_list: lista pentru undo
     :param lst_vanzari: lista de vanzari
     :return: lista cu vanzarile cu preturi modificate
     """
@@ -33,8 +33,8 @@ def aplicare_discount(lst_vanzari: list, undo_list, redo_list) -> list:
 def modifica_gen(title, gen, lst_vanzari, undo_list, redo_list):
     """
     Modifica genul unei carti pentru un titlu dat
-    :param redo_list:
-    :param undo_list:
+    :param redo_list: lista pentru redo
+    :param undo_list: lista pentru undo
     :param title: Titlul cartii
     :param gen: Genul nou
     :param lst_vanzari: Lista de vanzari

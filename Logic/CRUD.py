@@ -4,8 +4,8 @@ from Domain.vanzare import get_id, creeaza_vanzare
 def adauga_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari, undo_list, redo_list):
     """
     Adauga o vanzare in lista
-    :param redo_list:
-    :param undo_list:
+    :param redo_list: lista pentru redo
+    :param undo_list: lista pentru undo
     :param id_vanzare: sting
     :param titlu_carte: string
     :param gen_carte: string
@@ -38,8 +38,8 @@ def get_by_id(id_vanzare, lst_vanzari):
 def sterge_vanzare(id_vanzare, lst_vanzari, undo_list, redo_list):
     """
     Sterge o vanzare din lista
-    :param redo_list:
-    :param undo_list:
+    :param redo_list: lista pentru redo
+    :param undo_list: lista pentru undo
     :param id_vanzare: id-ul vanzarii pe care vrem sa o stergem
     :param lst_vanzari: lista de vanzari
     :return: noua lista ce nu contina vanzarea cu id-ul id_vanzare
@@ -54,8 +54,8 @@ def sterge_vanzare(id_vanzare, lst_vanzari, undo_list, redo_list):
 def modifica_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari, undo_list, redo_list):
     """
     Modifica o vanzare din lista dupa id
-    :param redo_list:
-    :param undo_list:
+    :param redo_list: lista pentru redo
+    :param undo_list: lista pentru undo
     :param id_vanzare: string
     :param titlu_carte: string
     :param gen_carte: string
