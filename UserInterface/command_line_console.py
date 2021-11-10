@@ -67,12 +67,12 @@ def line_console(lst_vanzari, undo_list, redo_list):
             com = comanda.split(",")
             if com[0] == "add":
                 try:
-                    lst_vanzari = adauga_vanzare(com[1], com[2], com[3], float(com[4]), com[5], lst_vanzari,
+                    lst_vanzari = adauga_vanzare(int(com[1]), com[2], com[3], float(com[4]), com[5], lst_vanzari,
                                                  undo_list, redo_list)
                 except ValueError as ve:
                     print("Eroare: ", ve)
             elif com[0] == "delete":
-                lst_vanzari = sterge_vanzare(str(com[1]), lst_vanzari, undo_list, redo_list)
+                lst_vanzari = sterge_vanzare(int(com[1]), lst_vanzari, undo_list, redo_list)
             elif com[0] == "minimum_price":
                 print(pret_minim_gen(lst_vanzari))
             elif com[0] == "show":
