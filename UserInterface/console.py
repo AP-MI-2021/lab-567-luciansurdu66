@@ -1,5 +1,5 @@
 from Domain.vanzare import to_string
-from Logic.CRUD import adauga_vanzare, sterge_vanzare, modifica_vanzare
+from Logic.CRUD import adauga_vanzare, sterge_vanzare, modifica_vanzare, get_by_id
 from Logic.functionalitati import aplicare_discount, pret_minim_gen, ordonare_dupa_pret, modifica_gen, titluri_distincte
 from Logic.undo_redo import do_undo, do_redo
 
@@ -21,11 +21,13 @@ def print_menu():
 
 def ui_adauga_vanzare(lst_vanzari, undo_list, redo_list):
     try:
-        id_vanzare = input("Dati id-ul vanzarii: ")
+        id_vanzare = int(input("Dati id-ul vanzarii: "))
         titlu = input("Dati titlul cartii: ")
         gen = input("Dati genul cartii: ")
         pret = float(input("Dati pretul cartii: "))
         reducere = input("Dati tipul de reducere client: ")
+        if reducere not in ["none", "silver", "gold"]:
+            raise ValueError(f"Singurele tipuri de reduceri acceptate sunt: none, silver si gold")
         return adauga_vanzare(id_vanzare, titlu, gen, pret, reducere, lst_vanzari, undo_list, redo_list)
     except ValueError as ve:
         print("Eroare: ", ve)
@@ -34,7 +36,7 @@ def ui_adauga_vanzare(lst_vanzari, undo_list, redo_list):
 
 def ui_sterge_vanzare(lst_vanzari, undo_list, redo_list):
     try:
-        id_vanzare = input("Dati id-ul vanzarii ce trebuie sters: ")
+        id_vanzare = int(input("Dati id-ul vanzarii ce trebuie sters: "))
         return sterge_vanzare(id_vanzare, lst_vanzari, undo_list, redo_list)
     except ValueError as ve:
         print("Eroare: ", ve)
@@ -43,7 +45,9 @@ def ui_sterge_vanzare(lst_vanzari, undo_list, redo_list):
 
 def ui_modifica_vanzare(lst_vanzari, undo_list, redo_list):
     try:
-        id_vanzare = input("Dati id-ul vanzarii ce trebuie modificata: ")
+        id_vanzare = int(input("Dati id-ul vanzarii ce trebuie modificata: "))
+        if get_by_id(id_vanzare, lst_vanzari) is None:
+            raise ValueError("Nu exista o vanzare cu id-ul dat!")
         titlu = input("Dati noul titlu al cartii: ")
         gen = input("Dati noul gen al cartii: ")
         pret = float(input("Dati noul pret al cartii: "))
