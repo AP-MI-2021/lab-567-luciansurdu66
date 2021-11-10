@@ -1,7 +1,7 @@
 from Domain.vanzare import get_id, creeaza_vanzare
 
 
-def adauga_vanzare(id_vanzare: int, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari, undo_list, redo_list):
+def adauga_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere, lst_vanzari, undo_list, redo_list):
     """
     Adauga o vanzare in lista
     :param redo_list: lista pentru redo
@@ -16,8 +16,6 @@ def adauga_vanzare(id_vanzare: int, titlu_carte, gen_carte, pret, tip_reducere, 
     """
     if get_by_id(id_vanzare, lst_vanzari) is not None:
         raise ValueError("Exista deja o vanzare cu acest id!")
-    if not isinstance(id_vanzare, int):
-        raise ValueError("Id-ul trebuie sa fie un numar!")
     else:
         vanzare = creeaza_vanzare(id_vanzare, titlu_carte, gen_carte, pret, tip_reducere)
         undo_list.append(lst_vanzari)
