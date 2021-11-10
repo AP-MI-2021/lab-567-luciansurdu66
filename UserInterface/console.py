@@ -21,7 +21,7 @@ def print_menu():
 
 def ui_adauga_vanzare(lst_vanzari, undo_list, redo_list):
     try:
-        id_vanzare = int(input("Dati id-ul vanzarii: "))
+        id_vanzare = input("Dati id-ul vanzarii: ")
         titlu = input("Dati titlul cartii: ")
         gen = input("Dati genul cartii: ")
         pret = float(input("Dati pretul cartii: "))
